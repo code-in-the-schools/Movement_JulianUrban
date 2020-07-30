@@ -9,7 +9,9 @@ class Character(object):
 
     Character.image = pygame.image.load('player.png')
     self.image = Character.image
-    #self.image = pygame.transform.scale(self.image(50,50))
+    self.image = pygame.transform.scale(self.image,(100,100))
+    self.height = 100
+    self.width = 100
 
     self.x = 50
     self.y = 50
@@ -20,13 +22,13 @@ class Character(object):
 
   def movement(self):
     key = pygame.key.get_pressed()
-    if key[pygame.K_DOWN]:
+    if key[pygame.K_DOWN] and self.y < 500 - self.height - 1:
       self.y += 1
-    if key[pygame.K_UP]:
+    if key[pygame.K_UP] and self.y > 1:
       self.y -= 1
-    if key[pygame.K_LEFT]:
+    if key[pygame.K_LEFT] and self.x > 1:
       self.x -= 1
-    if key[pygame.K_RIGHT]:
+    if key[pygame.K_RIGHT] and self.x < self.width - 1 - 55:
       self.x += 1
 
 
